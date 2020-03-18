@@ -1,8 +1,8 @@
 FROM alpine:latest
 LABEL MAINTAINER="Diego do Couto <eng.coutodiego@gmail.com>"
 
-ENV LARAVEL_UID=1000 \
-    LARAVEL_GID=1000
+ARG LARAVEL_UID=1000
+ARG LARAVEL_GID=1000
 
 # add our user and group first to make sure their IDs gets assigned consistently
 RUN addgroup -S -g ${LARAVEL_GID} laravel && adduser -S -G laravel -u ${LARAVEL_UID} laravel
